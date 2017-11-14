@@ -6,12 +6,15 @@ Live demo: https://jsfiddle.net/frontenddeveloper/fp7ntoyg/
 Usage
 -----
 
+Just initialize the plug-in on an HTML UL element, ID or class, and set a value within the **data-visible-amount** attribute.
+
 ```html
 <script type="text/javascript">
   $(function(){
     $('#myList').nkdShowMoreList();
   });
 </script>
+
 <div class="nkd-show-more-list no-js">
   <ul id="myList" class="nkd-list nkd-has-hidden-content" data-visible-amount="4">
     <li class="nkd-list-item">item #01</li>
