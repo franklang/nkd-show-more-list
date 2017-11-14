@@ -1,0 +1,36 @@
+// Core styles
+.nkd-show-more-list {
+  .nkd-hidden {
+    display: none;
+  }
+  .nkd-visible {
+    display: block !important;
+  }
+  .nkd-has-hidden-content {
+    .nkd-list-item {
+      display: none;
+    }
+    + .nkd-actions {
+      .nkd-show-less {
+        display: none;
+      }
+    }
+  }
+  .nkd-show-all {
+    + .nkd-actions {
+      .nkd-show-more {
+        display: none;
+      }
+      .nkd-show-less {
+        display: inline-block;
+      }
+    }
+  }
+  &.no-js {
+    .nkd-has-hidden-content {
+      .nkd-list-item {
+        display: block;
+      }
+    }
+  }
+}
