@@ -6,7 +6,8 @@ Live demo: https://jsfiddle.net/frontenddeveloper/fp7ntoyg/
 Usage
 -----
 
-Just initialize the plug-in on an HTML UL element, ID or class, and set a value within the **data-visible-amount** attribute.
+Just initialize the plug-in on an HTML UL/OL element, ID or class (on an UL/OL element), and set a value within the **data-visible-amount** attribute.
+Keep HTML and classes structure.
 
 ```html
 <script type="text/javascript">
