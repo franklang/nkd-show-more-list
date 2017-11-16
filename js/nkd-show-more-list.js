@@ -1,9 +1,11 @@
-$.fn.nkdShowMoreList = function(){
+$.nkdShowMoreList = function(selector){
 
-  var getDataNbValue = $(this).attr('data-visible-amount');
+  var $sel = $(selector);
+  var getDataNbValue = $sel.attr('data-visible-amount');
+  console.log(getDataNbValue);
 
   function showItemsOnInit(){
-    $('.nkd-list-item:nth-child(-n+'+ getDataNbValue +')')
+    $sel.find('.nkd-list-item:nth-child(-n+'+ getDataNbValue +')')
       .addClass('nkd-visible');
   }
   
