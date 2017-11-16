@@ -32,10 +32,12 @@ $.fn.nkdShowMoreList = function(){
         $actions.removeClass('nkd-hidden');
       }
     });
-  }); 
-
-  showItemsOnInit();
-
+  });
+  
+  if ($('.nkd-show-more-list').length > 0) {
+    showItemsOnInit();
+  }
+  
   $(document).on('click', '.nkd-show-more', function(){
     showMoreItems($(this));
   });
