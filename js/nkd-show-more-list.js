@@ -2,7 +2,6 @@ $.nkdShowMoreList = function(selector){
 
   var $sel = $(selector);
   var getDataNbValue = $sel.attr('data-visible-amount');
-  console.log(getDataNbValue);
 
   function showItemsOnInit(){
     $sel.find('.nkd-list-item:nth-child(-n+'+ getDataNbValue +')')
