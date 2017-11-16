@@ -12,7 +12,7 @@ Keep HTML and classes structure.
 ```html
 <script type="text/javascript">
   $(function(){
-    $('#myList').nkdShowMoreList();
+    $.nkdShowMoreList('#myList');
   });
 </script>
 
