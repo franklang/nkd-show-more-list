@@ -1,49 +1,56 @@
-$.nkdShowMoreList = function(selector){
+var nkdShowMoreList = {
 
-  var $sel = $(selector);
-  var getDataNbValue = $sel.attr('data-visible-amount');
+    // will be jQuery var
+    sel: undefined,
+    dataNbValue: undefined,
 
-  function showItemsOnInit(){
-    $sel.find('.nkd-list-item:nth-child(-n+'+ getDataNbValue +')')
-      .addClass('nkd-visible');
-  }
-  
-  function showMoreItems(thisObj){
-    thisObj
-      .closest('.nkd-show-more-list')
-      .children('.nkd-has-hidden-content')
-      .removeClass('nkd-has-hidden-content')
-      .addClass('nkd-show-all');
-  }
+    init: function (selector) {
+        this.sel = $(selector);
+        this.dataNbValue = this.sel.attr('data-visible-amount');
+        this.initInternal();
+        this.bind();
+    },
 
-  function showLessItems(thisObj){
-    thisObj
-      .closest('.nkd-show-more-list')
-      .children('.nkd-show-all')
-      .removeClass('nkd-show-all')
-      .addClass('nkd-has-hidden-content');
-  }
+    initInternal: function () {
+        $('.nkd-show-more-list').each(function (index, element) {
+            var $actions = $('.nkd-actions', element);
+            $(this).removeClass('no-js');
+            $('.nkd-list-item', element).each(function (index) {
+                if (index >= this.dataNbValue) {
+                    $actions.removeClass('nkd-hidden');
+                }
+            });
+        });
 
-  $('.nkd-show-more-list').each(function (index, element) {
-    var $actions = $('.nkd-actions', element);
+        if ($('.nkd-show-more-list').length > 0) {
+            this.showItemsOnInit();
+        }
+    },
 
-    $(this).removeClass('no-js');
-    $('.nkd-list-item', element ).each(function(index) {
-      if (index >= getDataNbValue) {
-        $actions.removeClass('nkd-hidden');
-      }
-    });
-  });
-  
-  if ($('.nkd-show-more-list').length > 0) {
-    showItemsOnInit();
-  }
-  
-  $(document).on('click', '.nkd-show-more', function(){
-    showMoreItems($(this));
-  });
+    bind: function(){
+        $(document).on('click', '.nkd-show-more', this.showMoreItems);
+        $(document).on('click', '.nkd-show-less', this.showLessItems);
+    },
 
-  $(document).on('click', '.nkd-show-less', function(){
-    showLessItems($(this));
-  });
-}
+    showItemsOnInit: function () {
+        this.sel.find('.nkd-list-item:nth-child(-n+' + this.dataNbValue + ')')
+            .addClass('nkd-visible');
+    },
+
+    showMoreItems: function () {
+        $(this)
+            .closest('.nkd-show-more-list')
+            .children('.nkd-has-hidden-content')
+            .removeClass('nkd-has-hidden-content')
+            .addClass('nkd-show-all');
+    },
+
+    showLessItems: function () {
+        $(this)
+            .closest('.nkd-show-more-list')
+            .children('.nkd-show-all')
+            .removeClass('nkd-show-all')
+            .addClass('nkd-has-hidden-content');
+    },
+
+};
