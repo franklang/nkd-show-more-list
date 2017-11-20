@@ -7,7 +7,7 @@ Usage
 -----
 
 Just initialize the plug-in on an HTML UL/OL element, ID or class (on an UL/OL element), and set a value within the **data-visible-amount** attribute.
-Keep HTML and classes structure.
+Keep HTML and classes structure as shown below.
 
 ```html
 <script type="text/javascript">
