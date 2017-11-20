@@ -16,7 +16,7 @@ var nkdShowMoreList = {
             var $actions = $('.nkd-actions', element);
             $(this).removeClass('no-js');
             $('.nkd-list-item', element).each(function (index) {
-                if (index >= this.dataNbValue) {
+                if (index >= nkdShowMoreList.dataNbValue) {
                     $actions.removeClass('nkd-hidden');
                 }
             });
