@@ -1,5 +1,5 @@
 # nkd-show-more-list
-A ready-to-skin show more/show less jQuery/SASS component
+A ready-to-skin show more/show less jQuery/SASS component by [jlboes](https://github.com/jlboes) and [franklang](https://github.com/franklang).
 
 Live demo: https://jsfiddle.net/j865xeg0/5/
 
